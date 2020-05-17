@@ -1,12 +1,17 @@
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const  port = 800;
+
+
+app.use(expressLayouts);
 //Using Middleware
 app.use('/',require('./routes'));
 
 
 
-
+app.set('view engine','ejs');
+app.set('views','./views');
 
 //use express routers;
 
