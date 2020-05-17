@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const  port = 800;
-
+//Using Middleware
 app.use('/',require('./routes'));
 
 
