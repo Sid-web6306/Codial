@@ -3,11 +3,14 @@ const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const  port = 800;
 
+app.use(express.static('./assets'));
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 
 app.use(expressLayouts);
 //Using Middleware
 app.use('/',require('./routes'));
-
 
 
 app.set('view engine','ejs');
