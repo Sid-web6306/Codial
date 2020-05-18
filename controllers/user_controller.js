@@ -36,10 +36,10 @@ module.exports.create = (req,res)=>{
                     console.log('error in signup');
                     return ;
                 }
-                return res.render('/users/sign-in');
+                return res.redirect('/users/sign-in');
             })
         }else{
-            return res.render('back');
+            return res.redirect('back');
         }
     })
 }
