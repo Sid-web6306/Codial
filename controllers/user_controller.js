@@ -27,13 +27,13 @@ module.exports.create = (req,res)=>{
     }
     User.findOne({email:req.body.email},(err,user)=>{
         if(err){
-            console.log('error in signup');
+            console.log('error in signup',err);
             return ;
         }
         if(!user){
             User.create(req.body,(err,user)=>{
                 if(err){
-                    console.log('error in signup');
+                    console.log('error in signup',err);
                     return ;
                 }
                 return res.redirect('/users/sign-in');
