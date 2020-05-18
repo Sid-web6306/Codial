@@ -23,7 +23,7 @@ module.exports.signIn = (req,res)=>{
 module.exports.create = (req,res)=>{
     
     if(req.body.password!=req.body.confirm_password){
-        return res.render('back');
+        return res.redirect('back');
     }
     User.findOne({email:req.body.email},(err,user)=>{
         if(err){
