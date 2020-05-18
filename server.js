@@ -4,7 +4,10 @@ const app = express();
 const  port = 800;
 const db = require('./config/mongoose');
 const User = require('./models/user');
+const cookieParser = require('cookie-parser');
 
+
+app.use(cookieParser());
 
 
 
