@@ -78,16 +78,10 @@ module.exports.createSession = (req,res) =>{
     })
 }
 
-module.exports.signOut=(res,req)=>{
-    res.clearCookie('foo');
-   res.send('cookie foo cleared');
-    
+
+module.exports.signout = (req,res) =>{
+    return res.redirect('/home');
 }
-
-
-
-
-
 
 
 
