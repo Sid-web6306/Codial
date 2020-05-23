@@ -7,13 +7,14 @@ const User = require('./models/user');
 const session  = require('express-session');
 const passport = require('passport');
 const passportLocal = require('passport-local');
+const mongoStore = require('connect-mongo')(session);
 
 const cookieParser = require('cookie-parser');
 app.use(express.urlencoded());
 app.use(cookieParser());
 
 
-
+//mongo store is used to store  the session cookie in the db
 app.use(session({
     name:'codial',
     secret: 'somethingsecret',
@@ -21,7 +22,16 @@ app.use(session({
     resave: false,
     cookie: {
      maxAge: (1000*60*100)      
-    }
+    },
+    store: new mongoStore(
+        {
+            mongooseConnection: db,
+            autoRemove: 'disabled'
+        },
+        (err)=>{
+            console.log(err || 'connect-monogodb setup-OK');
+        }
+    )
 }));
 
 app.use(passport.initialize());
