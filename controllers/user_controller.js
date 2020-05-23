@@ -19,12 +19,18 @@ module.exports.profile = (req,res)=>{
 }
 
 module.exports.signUp = (req,res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     res.render('user_sign_up',{
         title: "Codial | Sign-Up"
     })
 }
 
 module.exports.signIn = (req,res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     res.render('user_sign_in',{
         title: "Codial | Sign-In"
     })
@@ -83,6 +89,10 @@ module.exports.signout = (req,res) =>{
     return res.redirect('/home');
 }
 
+
+module.exports.createSession = (req,res)=>{
+    return res.redirect('/');
+}
 
 
 

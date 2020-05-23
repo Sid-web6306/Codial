@@ -18,4 +18,37 @@ passport.use(new LocalStrategy({
         })
     }
 
-))
+));
+
+passport.serializeUser((user,done)=>{
+    done(null,user.id);
+})
+
+passport.deserializeUser((id,done)=>{
+    User.findById,(err,user)=>{
+        if(err){
+            console.log('Error in finding the user');
+            return done(err);
+        }
+        return done(null,user);
+    }
+})
+
+
+
+passport.checkAuthentication = (res,req,next)=>{
+    if(req.authenticated()){
+        return next();
+    }
+    return res.redirect('/users/sign-up');
+}
+
+passport.setAuthenticatedUser = (req,res,next)=>{
+    if(req.isAuthenticated()){
+        res.local.user = req.user;
+    }
+    next();
+}
+
+
+module.exports = passport;
