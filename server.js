@@ -1,13 +1,22 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
-const  port = 800;
+const  port = 8;
 const db = require('./config/mongoose');
 const User = require('./models/user');
 const cookieParser = require('cookie-parser');
+const sassMiddleware = require('node-sass-middleware');
 app.use(express.urlencoded());
 app.use(cookieParser());
 
+app.use(sassMiddleware({
+    /* Options */
+    src: './assets/scss',
+    dest: './assets/css',
+    debug: true,
+    outputStyle: 'extended',
+    prefix:  '/css'  
+}));
 
 
 app.use(express.static('./assets'));
