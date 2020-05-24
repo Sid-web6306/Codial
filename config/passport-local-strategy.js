@@ -3,27 +3,29 @@ const User = require('../models/user');
 
 const LocalStrategy = require('passport-local').Strategy;
 
-
+//authentication using passport
 passport.use(new LocalStrategy({
     usernameField:'email'
     },
-    function(email,password,done){
+    (email,password,done)=>{    
+        //finding a user and establish the identity    
         User.findOne({email:email},(err,user)=>{
             if(err) {console.log('Error in finding user');return done(err);}
             if(!user || user.password!=password){
                 console.log('User is npt found');
                 return done(null,false);
             }
+            //done function take two arguments one is err and second is input
             return done(null,user);
         })
     }
 
 ));
-
+//serializing the user to decide which key is to be kept in the cookies
 passport.serializeUser((user,done)=>{
     done(null,user.id);
 })
-
+//deserializing the user from the key in the cookies
 passport.deserializeUser((id,done)=>{
     User.findById,(err,user)=>{
         if(err){
