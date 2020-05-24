@@ -6,6 +6,27 @@ const db = require('./config/mongoose');
 const User = require('./models/user');
 const cookieParser = require('cookie-parser');
 const sassMiddleware = require('node-sass-middleware');
+//use for session cookie
+const session = require('express-session');
+const passport = require ('./config/passport-local-strategy');
+
+
+app.use(session({
+    name:'codial',
+    //TODO change the secret before deployment in production mode
+    secret:'somethingsecret',
+     saveUninitialized: false,
+     resave:false,
+     cookie: {
+         maxAge:(1000*60*100)
+
+     }
+
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.urlencoded());
 app.use(cookieParser());
 
