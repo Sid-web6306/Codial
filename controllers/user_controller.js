@@ -1,21 +1,26 @@
 const User = require('../models/user');
 
 
-module.exports.profile = (req,res)=>{
-    res.render('user_profile',{
-        title : "User_Profile"
-    })
+module.exports.profile = function(req,res){ 
+    // console.log(res.cookie);   
+        return res.render('user_profile',{
+            title : "User_Profile",
+            // user : user
+        })
+    
 }
 
+    
+
 module.exports.signUp = (req,res)=>{
-    res.render('user_sign_up',{
-        title: "Codial | Sign-Up"
+    return res.render('user_sign_up',{
+        title: "Codial | Sign Up"
     })
 }
 
 module.exports.signIn = (req,res)=>{
-    res.render('user_sign_in',{
-        title: "Codial | Sign-In"
+    return res.render('user_sign_in',{
+        title: "Codial | Sign In"
     })
 }
 
@@ -45,7 +50,6 @@ module.exports.create= (req,res)=>{
 }
 
 module.exports.createSession = (req,res) =>{
-
     return res.redirect('/');
 }
 
