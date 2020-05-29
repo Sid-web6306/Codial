@@ -9,7 +9,7 @@ router.get('/',homeController.home);
 
 //using middleware
 router.use('/users',require('./users'));
-// router.use('/posts',require('./posts'));
+router.use('/posts',require('./posts'));
 
 
 // for any further routes, access from here
