@@ -1,18 +1,18 @@
-<header>
-    page Header
+<header class ="nav">
+    <h1>Codial</h1>
 
-    <ul>
+    <ul class="nav-link">
         <% if (locals.user){ %>
-            <li><a href="/users/profile"><%= user.name%></a></li>
-            <li>
+            <li class="nav-link-list"><a href="/users/profile"><%= user.name%></a></li>
+            <li class="nav-link-list">
                 <a href="/users/sign-out">SignOut</a>
             </li>
 
         <%}else {%>
-            <li>
+            <li class="nav-link-list">
                 <a href="/users/sign-in">SignIn</a>
             </li>
-            <li>
+            <li class="nav-link-list">
                 <a href="/users/sign-Up">SignUp</a>
             </li>
 

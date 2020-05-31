@@ -7,19 +7,11 @@ module.exports.home = (req,res)=>{
         Post.find({}, function(err,posts){
             return res.render('home',{
             title: "Codial | home",
-            posts: posts
+            posts: posts,
+            user:user
         });
-        //posts populate the user.
-        //Coming soon after error
+       
     
     });
 }
 
-//i switch the branch to master
-// it is running fine 
-//isko change krna everytime 
-//acha  ok
- //main error kya thi
- // tumne branch switch nahi ki thi first time or 
- //vhi hai pe sab code likh diya or setAuthentication me error thi locals likhna tha vha 
- // resolve kr du ?ok smjh gya thnks ok

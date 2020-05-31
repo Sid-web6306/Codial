@@ -1,21 +1,22 @@
 
-    <h1>Codial/Home-page</h1>
+    <h2>Codial/Home-page</h2>
     <br/><br/>
     <section id = "feed-posts">
         <h3>Posts</h3>
-        <form action="/posts/create" id="new-post-form" method="POST"></form>
-            <textarea name="content" placeholder="What's in your mind today?" cols="50" rows="10" required></textarea><br>
+        <form action="/posts/create" id="new-post-form" method="POST">
+            <textarea name="content" placeholder="What's in your mind today?" cols="50" rows="10" required ></textarea>
+            <br>
             <input type="submit" value="Post">
         </form>
 
 
         <div id="Post-list-container">
             <ul>
-                <% for(posts of posts){%>
+                <% for(post of posts){%>
                     <li>
                         <%=post.content%>
                         <small>
-                            <%=post.user%>
+                            <%=post.user.name%>
                         </small>
                     </li>
                 <%}%>

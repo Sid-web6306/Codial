@@ -1,6 +1,30 @@
+
+.nav{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(black,grey);
+    color: white;
+}
+h1{
+    margin: 5px;
+    padding: 2px;
+}
+
+
 ul{
     list-style:none;
+    padding: 0;
+}
+.nav-link{
+    
+    display: flex;
+}
+
+.nav-link-list{
+    padding: 3px;
 }
 a{
-    text-transform: none;
+    color: white;
+    text-decoration: none;
 }
