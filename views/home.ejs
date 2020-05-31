@@ -3,11 +3,13 @@
     <br/><br/>
     <section id = "feed-posts">
         <h3>Posts</h3>
+        <%if(locals.user){%>
         <form action="/posts/create" id="new-post-form" method="POST">
             <textarea name="content" placeholder="What's in your mind today?" cols="50" rows="10" required ></textarea>
             <br>
             <input type="submit" value="Post">
         </form>
+        <%}%>
 
 
         <div id="Post-list-container">
