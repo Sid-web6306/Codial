@@ -7,8 +7,7 @@ module.exports.home = (req,res)=>{
         Post.find({}, function(err,posts){
             return res.render('home',{
             title: "Codial | home",
-            posts: posts,
-            user:user
+            posts: posts
         });
        
     
