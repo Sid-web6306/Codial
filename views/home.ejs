@@ -14,19 +14,26 @@
 
         <div id="Post-list-container">
             <ul>
-                <p>
+                
                 <% for(post of posts){%>
                     <li>
-                        <div style="display: flex;justify-content: space-evenly;">
-                            <%=post.content%>
-                            <small style="font-weight: 800;">
-                                <%=post.user.name%>
-                            </small>
-
-                        </div>
-                        
+                        <p>
+                            <div>
+                                <div style="display: flex;justify-content: space-evenly;">
+                                    <%=post.content%>
+                                    <small style="font-weight: 800;">
+                                        <%=post.user.name%>
+                                    </small>
+                                </div>
+                                <% if(locals.user && locals.user.id == post.user.id){%>
+                                        <button style="background-color: red;">
+                                            <a  href="/posts/destroy/<%=post.id %>">delete Post</a>
+                                        </button>
+                                <%}%>
+                            </div>
+                        </p>
                     </li>
-                </p>
+                
                 <div class="post-comments">
                     <%if(locals.user){%>
                         <form action = "/comments/create" method="POST">
@@ -39,13 +46,27 @@
                     <div class="post-comments-list">
                         <ul id="post-comments-<%=post._id%>">
                             <% for(comment of post.comments){%>
-                                <p>
-                                    <%=comment.content%>
-                                    <br>
-                                    <small>
-                                        <%=comment.user.name%>
-                                    </small>
-                                </p>
+                                <li>
+                                    <p>
+                                        <div>
+                                            <div>
+                                                <%=comment.content%>
+                                                <br>
+                                                <small>
+                                                    <%=comment.user.name%>
+                                                </small>
+                                            </div>
+                                            <% if(locals.user && locals.user.id ==  comment.user.id){%>
+                                                <button style="background-color: red;">
+                                                    <a  href="/comments/destroy/<%=comment.id %>">delete comment</a>
+                                                </button>
+                                            <%}%>
+                                            
+                                        </div>
+                                        
+                                    </p>
+                                </li>
+                                
                             
                             
                             <%}%>
