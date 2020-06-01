@@ -3,10 +3,23 @@ const User = require('../models/user');
 
 module.exports.profile = function(req,res){ 
     // console.log(res.cookie);   
-        return res.render('user_profile',{
-            title : "User_Profile",
-        })
+            User.findById(req.params.id,(err,user)=>{
+                return res.render('user_profile',{
+                title : "User_Profile",
+                profile_user:user
+            });
+        });
     
+}
+
+module.exports.update = (req,res)=>{
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body,(err,user)=>{
+            return res.redirect('back')
+        })
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
 }
 
     

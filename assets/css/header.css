@@ -22,9 +22,10 @@ ul{
 }
 
 .nav-link-list{
+    color: white;
     padding: 3px;
 }
 a{
-    color: white;
+    color:black;
     text-transform: capitalize;
 }

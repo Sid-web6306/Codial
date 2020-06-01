@@ -3,19 +3,18 @@
 
     <ul class="nav-link">
         <% if (locals.user){ %>
-            <li class="nav-link-list"><a href="/users/profile"><%= user.name%></a></li>
+            <li class="nav-link-list"><a style="color: white;" href="/users/profile"><%= user.name%></a style="color: white;"></li>
             <li class="nav-link-list">
-                <a href="/users/sign-out">SignOut</a>
+                <a style="color: white;" href="/users/sign-out">SignOut</a style="color: white;">
             </li>
 
         <%}else {%>
             <li class="nav-link-list">
-                <a href="/users/sign-in">SignIn</a>
+                <a  style="color: white;"href="/users/sign-in">SignIn</a style="color: white;">
             </li>
             <li class="nav-link-list">
-                <a href="/users/sign-Up">SignUp</a>
+                <a style="color: white;" href="/users/sign-Up">SignUp</a style="color: white;">
             </li>
-
         <% } %>
     </ul>
 </header>
