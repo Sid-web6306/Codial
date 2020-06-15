@@ -19,7 +19,7 @@ let renderTemplate = (data,relativePath)=>{
         data,
         (err,template)=>{
             if(err){
-                console.log('error in rendering a template');return;
+                console.log('error in rendering a template',err);return;
             }
         }
         mailHTML = template;
