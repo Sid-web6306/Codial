@@ -15,10 +15,6 @@ const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 
 
-
-
-
-
 app.use(express.urlencoded());
 app.use(cookieParser());
 app.use(express.static('./assets'));

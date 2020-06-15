@@ -1,20 +1,33 @@
 <header class ="nav">
-    <h1>Codial</h1>
+    <nav>
+        <div class="logo">
+            <p>
+                <a href="/">
+                    Codial
+                </a>
+            </p>
 
-    <ul class="nav-link">
-        <% if (locals.user){ %>
-            <li class="nav-link-list"><a style="color: white;" href="/users/profile"><%= user.name%></a style="color: white;"></li>
-            <li class="nav-link-list">
-                <a style="color: white;" href="/users/sign-out">SignOut</a style="color: white;">
-            </li>
+        </div>
+        
+        <div class="auth-links">
+            <ul class="nav-link">
+                <% if (locals.user){ %>
+                    <li class="nav-link-list"><a style="color: white;" href="/users/profile/<%=user.id%>"><%=user.name%></a style="color: white;"></li>
+                    <li class="nav-link-list">
+                        <a style="color: white;" href="/users/sign-out">SignOut</a style="color: white;">
+                    </li>
 
-        <%}else {%>
-            <li class="nav-link-list">
-                <a  style="color: white;"href="/users/sign-in">SignIn</a style="color: white;">
-            </li>
-            <li class="nav-link-list">
-                <a style="color: white;" href="/users/sign-Up">SignUp</a style="color: white;">
-            </li>
-        <% } %>
-    </ul>
+                <%}else {%>
+                    <li class="nav-link-list">
+                        <a  style="color: white;"href="/users/sign-in">SignIn</a style="color: white;">
+                    </li>
+                    <li class="nav-link-list">
+                        <a style="color: white;" href="/users/sign-Up">SignUp</a style="color: white;">
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+       
+    </nav>
+    
 </header>
